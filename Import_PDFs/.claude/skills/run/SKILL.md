@@ -43,7 +43,12 @@ This returns a JSON array of new PDFs not yet converted:
 
 If the array is empty, report that there are no new PDFs to process and stop.
 
-### Step 2: For each new PDF
+### Step 2: Process each new PDF sequentially
+
+**IMPORTANT: Process PDFs one at a time.** Do NOT batch convert. Each iteration must:
+1. Convert to markdown
+2. Call `mcp__pachinko__add_note` to import to Pachinko
+3. Mark as converted
 
 For each PDF in the list:
 
@@ -60,7 +65,7 @@ This returns either:
 
 If there's an error, log a warning and continue to the next PDF.
 
-#### 2b. Add to Pachinko
+#### 2b. Add to Pachinko (LLM tool call required)
 
 Call `mcp__pachinko__add_note` with:
 - `note_title`: The PDF filename without extension (use `pdf_name` to extract it)
