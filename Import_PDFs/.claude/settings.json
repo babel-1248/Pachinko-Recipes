@@ -21,7 +21,8 @@
       "WebSearch",
       "WebFetch",
       "Bash(echo \"$PDF_FOLDER\")",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(pip install *)"
     ]
   }
 }
