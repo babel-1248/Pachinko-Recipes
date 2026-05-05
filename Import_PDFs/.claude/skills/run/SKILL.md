@@ -4,14 +4,27 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
 
 ## Prerequisites
 
-1. **pymupdf4llm must be installed**:
+1. **Check pymupdf4llm is installed**:
+   ```bash
+   python3 -c "import pymupdf4llm"
+   ```
+   If the command fails, install it:
    ```bash
    pip install pymupdf4llm
    ```
 
-2. **PDF_FOLDER must be set** — `get_new_pdfs.py` will report an error if it isn't
+2. **Check anthropic is installed** (required if `CLAUDE_VISION_API_KEY` is set):
+   ```bash
+   python3 -c "import anthropic"
+   ```
+   If the command fails, install it:
+   ```bash
+   pip install anthropic
+   ```
 
-3. **CLAUDE_VISION_API_KEY (optional)**: If set, conversion uses Claude vision for best quality — handles scanned PDFs, complex layouts, and image-heavy documents. Without it, falls back to pymupdf4llm which works well for text-based PDFs.
+3. **PDF_FOLDER must be set** — `get_new_pdfs.py` will report an error if it isn't
+
+4. **CLAUDE_VISION_API_KEY (optional)**: If set, conversion uses Claude vision for best quality — handles scanned PDFs, complex layouts, and image-heavy documents. Without it, falls back to pymupdf4llm which works well for text-based PDFs.
 
 ## Workflow
 
