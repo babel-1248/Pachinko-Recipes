@@ -6,7 +6,7 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
 
 1. **Check pymupdf4llm is installed**:
    ```bash
-   python3 -c "import pymupdf4llm"
+   PYTHONPATH=.packages python3 -c "import pymupdf4llm"
    ```
    If the command fails, install it:
    ```bash
@@ -15,7 +15,7 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
 
 2. **Check anthropic is installed** (required if `CLAUDE_VISION_API_KEY` is set):
    ```bash
-   python3 -c "import anthropic"
+   PYTHONPATH=.packages python3 -c "import anthropic"
    ```
    If the command fails, install it:
    ```bash
