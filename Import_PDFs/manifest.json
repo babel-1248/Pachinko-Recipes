@@ -4,5 +4,17 @@
   "supportedAgents": [
     "Claude Code",
     "Codex"
-  ]
+  ],
+  "variables": {
+    "PDF_FOLDER": {
+      "description": "The folder to watch for new PDFs. This variable is required.",
+      "type": "folder",
+      "required": true
+    },
+    "CLAUDE_VISION_API_KEY": {
+      "description": "An optional ANTHROPIC API key with access to Claude vision. If set, Claude vision will be used for PDF conversion, which can handle scanned PDFs. If not set, a fallback method will be used that works well for text-based PDFs but may omit scanned/image-only pages.",
+      "type": "string",
+      "required": false
+    }
+  }
 }

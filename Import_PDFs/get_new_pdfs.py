@@ -11,8 +11,12 @@ from pathlib import Path
 
 def get_new_pdfs():
     """Return list of new PDFs not yet in the state file."""
-    pdf_folder = Path(os.getenv("PDF_FOLDER", "."))
+    raw = os.getenv("PDF_FOLDER")
+    if not raw:
+        print(json.dumps({"error": "PDF_FOLDER environment variable is not set. Set it with: export PDF_FOLDER=/path/to/your/pdfs"}))
+        sys.exit(1)
 
+    pdf_folder = Path(raw)
     if not pdf_folder.exists():
         print(json.dumps({"error": f"PDF_FOLDER not found: {pdf_folder}"}))
         sys.exit(1)

@@ -21,6 +21,7 @@
       "WebSearch",
       "WebFetch",
       "Bash(echo \"$PDF_FOLDER\")",
+      "Bash(echo \"$CLAUDE_VISION_API_KEY\")",
       "Bash(python3 *)",
       "Bash(pip install *)"
     ]
