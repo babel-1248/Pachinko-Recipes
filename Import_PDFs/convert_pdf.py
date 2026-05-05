@@ -30,7 +30,7 @@ except ImportError:
 def convert_with_claude(pdf_path: str) -> str:
     import anthropic
 
-    client = anthropic.Anthropic(api_key=os.environ.get("CLAUDE_VISION_API_KEY"))
+    client = anthropic.Anthropic(api_key=os.environ.get("CLAUDE_VISION_API_KEY", "").strip())
     doc = fitz.open(pdf_path)
     total = len(doc)
     pages_markdown = []
