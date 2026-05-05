@@ -10,7 +10,7 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
    ```
    If the command fails, install it:
    ```bash
-   pip install pymupdf4llm
+   pip install --target=.packages pymupdf4llm
    ```
 
 2. **Check anthropic is installed** (required if `CLAUDE_VISION_API_KEY` is set):
@@ -19,7 +19,7 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
    ```
    If the command fails, install it:
    ```bash
-   pip install anthropic
+   pip install --target=.packages anthropic
    ```
 
 3. **PDF_FOLDER must be set** — `get_new_pdfs.py` will report an error if it isn't
@@ -58,7 +58,7 @@ For each PDF in the list:
 
 Run **in the foreground** with stderr merged so page progress is visible inline:
 ```bash
-python3 convert_pdf.py <pdf_path> 2>&1
+PYTHONPATH=.packages python3 convert_pdf.py <pdf_path> 2>&1
 ```
 
 The script prints `Page X of Y` lines to stderr as it works, then emits a single JSON object on the last line of stdout. Parse the **last line** as JSON:

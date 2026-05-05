@@ -22,6 +22,7 @@
       "WebFetch",
       "Bash(echo \"$PDF_FOLDER\")",
       "Bash(echo \"$CLAUDE_VISION_API_KEY\")",
+      "Bash(PYTHONPATH=.packages python3 *)",
       "Bash(python3 *)",
       "Bash(pip install *)"
     ]

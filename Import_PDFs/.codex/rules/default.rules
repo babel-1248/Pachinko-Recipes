@@ -23,9 +23,9 @@ prefix_rule(
 )
 
 prefix_rule(
-    pattern = ["pip", "install", "pymupdf4llm"],
+    pattern = ["pip", "install", "--target=.packages", "pymupdf4llm"],
     decision = "allow",
-    justification = "Allow installing pymupdf4llm if it is missing.",
+    justification = "Allow installing pymupdf4llm to the local .packages directory.",
 )
 
 prefix_rule(
@@ -35,7 +35,7 @@ prefix_rule(
 )
 
 prefix_rule(
-    pattern = ["pip", "install", "anthropic"],
+    pattern = ["pip", "install", "--target=.packages", "anthropic"],
     decision = "allow",
-    justification = "Allow installing the anthropic Python package if it is missing.",
+    justification = "Allow installing the anthropic Python package to the local .packages directory.",
 )
