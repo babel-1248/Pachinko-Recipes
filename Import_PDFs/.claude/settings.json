@@ -24,7 +24,12 @@
       "Bash(echo \"$CLAUDE_VISION_API_KEY\")",
       "Bash(PYTHONPATH=.packages python3 *)",
       "Bash(python3 *)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Write(/tmp/**)",
+      "Bash(mkdir *)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }

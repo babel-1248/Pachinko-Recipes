@@ -11,7 +11,6 @@ Outputs JSON on stdout:
 
 import json
 import sys
-import tempfile
 from pathlib import Path
 
 try:
@@ -30,7 +29,7 @@ def pdf_to_images(pdf_path: str) -> dict:
         doc = fitz.open(pdf_path)
         total = len(doc)
 
-        out_dir = Path(tempfile.gettempdir()) / "claude_pdf_imports" / pdf_file.stem
+        out_dir = Path(__file__).parent / "pdf_images" / pdf_file.stem
         out_dir.mkdir(parents=True, exist_ok=True)
 
         image_paths = []

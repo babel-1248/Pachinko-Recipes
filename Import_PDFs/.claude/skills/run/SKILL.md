@@ -85,6 +85,10 @@ Parse the **last line** as JSON:
 ```
 /tmp/claude_pdf_imports/<pdf_stem>.md
 ```
+Use the absolute path `/tmp/claude_pdf_imports/<pdf_stem>.md`. Create the directory first if needed:
+```bash
+mkdir -p /tmp/claude_pdf_imports
+```
 
 Use this `markdown_path` in step 2b.
 
