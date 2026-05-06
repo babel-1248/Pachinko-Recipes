@@ -1,0 +1,15 @@
+{
+  "name": "News Flash",
+  "version": "1.0.0",
+  "supportedAgents": [
+    "Claude Code",
+    "Codex"
+  ],
+  "variables": {
+    "SEARCH_QUERY": {
+      "description": "The topic or query to research. The skill will perform multiple web searches to gather the latest information on this topic since it was last run.",
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -20,7 +20,8 @@
       "mcp__pachinko__set_project_status",
       "WebSearch",
       "WebFetch",
-      "Bash(echo \"$SEARCH_QUERY\")"
+      "Bash(echo \"$SEARCH_QUERY\")",
+      "Bash(python3 *)"
     ]
   }
 }
