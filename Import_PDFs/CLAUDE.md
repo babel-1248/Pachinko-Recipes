@@ -16,7 +16,7 @@ Say **"run"** to execute the full pipeline:
 1. Open this project in Claude Code — skills load automatically
 2. Say "run" to start
 
-**Optional:** Set `CLAUDE_VISION_API_KEY` to use Claude Sonnet 4.6 for conversion — handles scanned PDFs and complex layouts. Without it, falls back to pymupdf4llm (text-based PDFs only).
+PDFs are converted using model vision by default — each page is rendered to an image and the model reads it directly (no API key needed). Set `CLAUDE_VISION_API_KEY` to use the Claude Sonnet 4.6 API instead (useful for large batches). pymupdf4llm is used as a last-resort fallback.
 
 ## Skills included
 
