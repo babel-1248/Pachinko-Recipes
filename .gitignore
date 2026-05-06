@@ -2,3 +2,5 @@
 settings.local.json
 
 Sync_RSS_Feeds/feed_state.json
+
+Import_PDFs/converted_pdfs.json
