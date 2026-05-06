@@ -71,6 +71,8 @@ Two paths depending on whether `CLAUDE_VISION_API_KEY` is set.
 
 **Option A — Model vision (primary, when `CLAUDE_VISION_API_KEY` is NOT set)**
 
+This path is mandatory when `CLAUDE_VISION_API_KEY` is not set. Do not skip it or switch to Option B for speed, convenience, document length, text-native PDFs, or any other optimization. Option B is allowed only after an actual error occurs during rendering, image reading, or direct image-to-markdown conversion.
+
 **Step 1**: Render the PDF to images:
 ```bash
 PYTHONPATH=.packages python3 pdf_to_images.py <pdf_path> 2>&1
@@ -80,6 +82,8 @@ Parse the **last line** as JSON:
 - **Error**: `{"error": "..."}` → fall through to Option B
 
 **Step 2**: For each path in the `images` array, read the image with the Read tool and convert it to clean markdown. Preserve all text, headings, tables (markdown table syntax), and structure. Do not add commentary about images — extract text content only.
+
+If a page image cannot be read or cannot be converted directly to markdown, treat that as an error and fall through to Option B for the whole PDF. Do not fall through after successful image reads just because another converter may be faster.
 
 **Step 3**: Join the per-page markdown strings with `\n\n---\n\n` separators, then write the result to:
 ```
@@ -92,11 +96,13 @@ mkdir -p /tmp/claude_pdf_imports
 
 Use this `markdown_path` in step 2b.
 
-If rendering fails **or** you cannot read the images, fall through to Option B.
+If rendering fails, an image cannot be read, or direct image-to-markdown conversion errors, fall through to Option B. Otherwise use this `markdown_path` and continue to step 2b.
 
 ---
 
-**Option B — convert_pdf.py (fallback, or when `CLAUDE_VISION_API_KEY` is set)**
+**Option B — convert_pdf.py (fallback after direct-conversion error, or when `CLAUDE_VISION_API_KEY` is set)**
+
+When `CLAUDE_VISION_API_KEY` is not set, run this option only after Option A has produced an actual error. Do not use `convert_pdf.py` as an optimization or shortcut after Option A succeeds.
 
 Run **in the foreground** with stderr merged:
 ```bash
@@ -156,6 +162,8 @@ Only PDFs in this list are skipped on future runs.
 ## Error Handling
 
 - **get_new_pdfs.py returns error**: Report and stop immediately (includes missing PDF_FOLDER)
+- **model-vision conversion succeeds**: Use its generated markdown; do not run `convert_pdf.py` as an optimization
+- **model-vision conversion errors**: Fall back to `convert_pdf.py`
 - **convert_pdf.py returns error**: Log warning, skip that PDF, continue with next
 - **mcp__pachinko__add_note fails**: Log warning, still mark PDF as converted, continue
 - **mark_converted.py fails**: Log warning but continue
