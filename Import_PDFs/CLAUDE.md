@@ -7,7 +7,7 @@ A Claude Code recipe that converts PDF files to markdown and imports them into y
 Say **"run"** to execute the full pipeline:
 
 1. Scan `PDF_FOLDER` for new PDF files
-2. Convert each to markdown (using pymupdf4llm)
+2. Convert each to markdown (using LLM vision with pymupdf4llm as a backup)
 3. Add each one to the Pachinko inbox as a markdown note
 4. Track converted PDFs so nothing is processed twice
 
@@ -16,7 +16,7 @@ Say **"run"** to execute the full pipeline:
 1. Open this project in Claude Code — skills load automatically
 2. Say "run" to start
 
-**Optional:** Set `CLAUDE_VISION_API_KEY` to use Claude Sonnet 4.6 for conversion — handles scanned PDFs and complex layouts. Without it, falls back to pymupdf4llm (text-based PDFs only).
+PDFs are converted using model vision by default — each page is rendered to an image and the model reads it directly (no API key needed). Set `CLAUDE_VISION_API_KEY` to use the Claude Sonnet 4.6 API instead (useful for large batches). pymupdf4llm is used as a last-resort fallback.
 
 ## Skills included
 

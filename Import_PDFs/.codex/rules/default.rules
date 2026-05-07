@@ -5,6 +5,12 @@ prefix_rule(
 )
 
 prefix_rule(
+    pattern = ["python3", "pdf_to_images.py"],
+    decision = "allow",
+    justification = "Allow rendering PDF pages to images for model vision conversion.",
+)
+
+prefix_rule(
     pattern = ["python3", "convert_pdf.py"],
     decision = "allow",
     justification = "Allow converting a PDF to markdown.",
@@ -14,6 +20,18 @@ prefix_rule(
     pattern = ["python3", "mark_converted.py"],
     decision = "allow",
     justification = "Allow updating the converted_pdfs.json state file.",
+)
+
+prefix_rule(
+    pattern = ["python3", "write_markdown.py"],
+    decision = "allow",
+    justification = "Allow writing markdown files",
+)
+
+prefix_rule(
+    pattern = ["python3", "-c", "import fitz"],
+    decision = "allow",
+    justification = "Allow checking whether PyMuPDF is installed in .packages.",
 )
 
 prefix_rule(
