@@ -7,7 +7,7 @@ A Claude Code recipe that converts PDF files to markdown and imports them into y
 Say **"run"** to execute the full pipeline:
 
 1. Scan `PDF_FOLDER` for new PDF files
-2. Convert each to markdown (using pymupdf4llm)
+2. Convert each to markdown (using LLM vision with pymupdf4llm as a backup)
 3. Add each one to the Pachinko inbox as a markdown note
 4. Track converted PDFs so nothing is processed twice
 
