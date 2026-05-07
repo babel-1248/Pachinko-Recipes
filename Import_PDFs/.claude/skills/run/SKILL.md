@@ -33,7 +33,11 @@ Process all new PDFs from PDF_FOLDER, convert them to markdown, and import them 
 
 4. **PDF_FOLDER must be set** — `get_new_pdfs.py` will report an error if it isn't
 
-5. **CLAUDE_VISION_API_KEY (optional)**: If set, skips model-vision and calls Claude Sonnet directly via the API instead — useful for large batches where you want a separate API key.
+5. **CLAUDE_VISION_API_KEY (optional)**: Check whether it is set:
+   ```bash
+   echo "$CLAUDE_VISION_API_KEY"
+   ```
+   If the output is non-empty, use Option B (Claude Sonnet API). Otherwise use Option A (model vision).
 
 ## Workflow
 
@@ -65,7 +69,7 @@ For each PDF in the list:
 
 #### 2a. Convert the PDF
 
-Two paths depending on whether `CLAUDE_VISION_API_KEY` is set.
+Two paths depending on `CLAUDE_VISION_API_KEY` (check with `echo "$CLAUDE_VISION_API_KEY"` — non-empty means set).
 
 ---
 
