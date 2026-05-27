@@ -19,7 +19,8 @@
       "mcp__pachinko__set_note_status",
       "mcp__pachinko__set_project_status",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Bash(echo \"$QUEUE_RUNNER_IDS\")"
     ]
   }
 }
