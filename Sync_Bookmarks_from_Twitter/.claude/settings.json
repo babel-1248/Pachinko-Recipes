@@ -38,7 +38,9 @@
       "Bash(.claude/scripts/ft-append-sent.sh:*)",
       "Bash(sed 's/^.*\\\\[$/[/')",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Bash(echo \"$QUEUE_RUNNER_IDS\")",
+      "Bash(echo \"$SAVE_TO_PROJECT_ID\")"
     ]
   }
 }

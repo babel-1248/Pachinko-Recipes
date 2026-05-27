@@ -26,7 +26,9 @@
       "Bash(python3 *)",
       "Bash(pip install *)",
       "Write(/tmp/**)",
-      "Bash(mkdir *)"
+      "Bash(mkdir *)",
+      "Bash(echo \"$QUEUE_RUNNER_IDS\")",
+      "Bash(echo \"$SAVE_TO_PROJECT_ID\")"
     ],
     "additionalDirectories": [
       "/tmp"
