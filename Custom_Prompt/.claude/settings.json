@@ -20,7 +20,8 @@
       "mcp__pachinko__set_project_status",
       "WebSearch",
       "WebFetch",
-      "Bash(echo \"$QUEUE_RUNNER_IDS\")"
+      "Bash(echo \"$QUEUE_RUNNER_IDS\")",
+      "Bash(echo \"$SAVE_TO_PROJECT_ID\")"
     ]
   }
 }
