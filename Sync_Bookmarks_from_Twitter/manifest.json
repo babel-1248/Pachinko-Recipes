@@ -1,6 +1,6 @@
 {
   "name": "Sync Bookmarks from Twitter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "supportedAgents": [
     "Claude Code",
     "Codex"
