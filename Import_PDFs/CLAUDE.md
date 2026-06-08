@@ -28,19 +28,20 @@ PDFs are converted using model vision by default — each page is rendered to an
 
 Converted PDF paths are tracked in `converted_pdfs.json` in the project root. Only PDFs not listed there are processed, preventing duplicates across runs.
 
-## Post-Execution: Queue Runner
+## Post-Execution: Queue Function
 
 After every execution — including simple responses — always perform the following steps:
 
 **Important:** Run these commands using `echo "$VAR"` exactly as written. Do not substitute `printenv` or other alternatives.
 
-1. Run `echo "$QUEUE_RUNNER_IDS"` in bash to read the environment variable value.
+1. Run `echo "$QUEUE_FUNCTION_IDS"` in bash to read the environment variable value.
 2. If the output is empty, stop here.
-3. Parse the output as a comma-separated list of runner IDs (e.g. `runner-a,runner-b`).
-4. Collect every note that was newly created during this execution.
-5. For each runner ID in the list, call `mcp__pachinko__queue_runner` with that runner ID and the list of new note IDs.
-   - If there are 10 or fewer new notes, queue all of them in a single call per runner.
-   - If there are more than 10 new notes, queue them in batches of 10 per call — each runner receives one call per batch until all notes are queued.
+3. Run `echo "$FEED_ID"` in bash to read the environment variable value. Pass this value as the `feed_id` parameter when calling `mcp__pachinko__queue_function`.
+4. Parse the output as a comma-separated list of function IDs (e.g. `function-a,function-b`).
+5. Collect every note that was newly created during this execution.
+6. For each function ID in the list, call `mcp__pachinko__queue_function` with that function ID, the `feed_id` value, and the list of new note IDs.
+   - If there are 10 or fewer new notes, queue all of them in a single call per function.
+   - If there are more than 10 new notes, queue them in batches of 10 per call — each function receives one call per batch until all notes are queued.
 
 ## Creating Notes
 

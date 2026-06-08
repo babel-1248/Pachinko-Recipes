@@ -13,7 +13,7 @@
       "mcp__pachinko__list_sections",
       "mcp__pachinko__list_statuses",
       "mcp__pachinko__move_note",
-      "mcp__pachinko__queue_runner",
+      "mcp__pachinko__queue_function",
       "mcp__pachinko__set_note_due_date",
       "mcp__pachinko__set_note_start_date",
       "mcp__pachinko__set_note_status",
@@ -27,7 +27,8 @@
       "Bash(pip install *)",
       "Write(/tmp/**)",
       "Bash(mkdir *)",
-      "Bash(echo \"$QUEUE_RUNNER_IDS\")",
+      "Bash(echo \"$FEED_ID\")",
+      "Bash(echo \"$QUEUE_FUNCTION_IDS\")",
       "Bash(echo \"$SAVE_TO_PROJECT_ID\")"
     ],
     "additionalDirectories": [
